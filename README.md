@@ -45,10 +45,12 @@ python bot.py
 2. Install the [`heroku` command line tool](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
 3. Login to Heroku via the command line tool with `heroku login`.
 4. In the root of the repository, run `heroku create` which will set up a Heroku app and create a `heroku` remote for the repository.
-5. Set the environment variables for the Heroku app:
+5. Create the file containing the last seen tweet (see above) and commit it to git:  
+   `echo "1234567890..." > last_seen.txt && git add last_seen.txt && git commit -m "Add last seen file"`
+6. Set the environment variables for the Heroku app:
    1. `heroku config:set API_KEY=...`
    2. `heroku config:set API_KEY_SECRET=...`
    3. `heroku config:set ACCESS_TOKEN=...`
    4. `heroku config:set ACCESS_TOKEN_SECRET=...`
-6. Deploy the app by running `git push heroku main`.
-7. Start the worker on Heroku by running `heroku ps:scale worker=1`.
+7. Deploy the app by running `git push heroku main`.
+8. Start the worker on Heroku by running `heroku ps:scale worker=1`.
