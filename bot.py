@@ -7,18 +7,18 @@ import time
 import os
 
 # Set constants
-LAST_SEEN_FILE_PATH = "./last_seen.txt"
-RETWEET_USER = "Int_SORSE"
+LAST_SEEN_FILE_PATH = './last_seen.txt'
+RETWEET_USER = 'Int_SORSE'
 
 # The following four variables must be available as environment variables
 # Our consumer key
-api_key = os.environ["API_KEY"]
+api_key = os.environ['API_KEY']
 # Our consumer secret
-api_secret = os.environ["API_KEY_SECRET"]
+api_secret = os.environ['API_KEY_SECRET']
 # Our access token
-access_token = os.environ["ACCESS_TOKEN"]
+access_token = os.environ['ACCESS_TOKEN']
 # Our access token secret
-access_secret = os.environ["ACCESS_TOKEN_SECRET"]
+access_secret = os.environ['ACCESS_TOKEN_SECRET']
 
 # Authenticate using OAuth 1a authentication.
 # See http://docs.tweepy.org/en/v3.9.0/auth_tutorial.html#oauth-1a-authentication.
@@ -36,7 +36,7 @@ def read_last_seen():
     returns it as an integer.
     """
     # Read file and
-    with open(LAST_SEEN_FILE_PATH, "r") as file:
+    with open(LAST_SEEN_FILE_PATH, 'r') as file:
         last_seen_id = int(file.read().strip())
         return last_seen_id
 
@@ -47,7 +47,7 @@ def write_last_seen(last_seen_id):
     Writes the string of the ID of the most recently retweeted tweet
     to a file in the path specified by the LAST_SEEN_FILE_PATH constant.
     """
-    with open(LAST_SEEN_FILE_PATH, "w") as file:
+    with open(LAST_SEEN_FILE_PATH, 'w') as file:
         file.write(str(last_seen_id))
     return
 
@@ -90,5 +90,5 @@ def main():
         time.sleep(60)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
