@@ -43,11 +43,12 @@ python bot.py
 
 1. Get an account on <https://heroku.com>.
 2. Install the [`heroku` command line tool](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
-3. In the root of the repository, run `heroku create` which will set up a Heroku app and create a `heroku` remote for the repository.
-4. Set the environment variables for the Heroku app:
+3. Login to Heroku via the command line tool with `heroku login`.
+4. In the root of the repository, run `heroku create` which will set up a Heroku app and create a `heroku` remote for the repository.
+5. Set the environment variables for the Heroku app:
    1. `heroku config:set API_KEY=...`
    2. `heroku config:set API_KEY_SECRET=...`
    3. `heroku config:set ACCESS_TOKEN=...`
    4. `heroku config:set ACCESS_TOKEN_SECRET=...`
-5. Deploy the app by running `git push heroku main`.
-6. Start the worker on Heroku by running `heroku ps:scale worker=1`.
+6. Deploy the app by running `git push heroku main`.
+7. Start the worker on Heroku by running `heroku ps:scale worker=1`.
