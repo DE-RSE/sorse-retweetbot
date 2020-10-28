@@ -5,11 +5,12 @@ This is a very simple Python Twitter bot that likes and retweets all tweets made
 ## Requirements
 
 - Python 3
+- Create an App on Twitter's developer portal
 - The following environment variables must be set and be readable by Python's `os.environ`:
   - `API_KEY`: The Twitter API Key
   - `API_KEY_SECRET`: The Twitter API Key secret
   - `ACCESS_TOKEN`: The Twitter Access Token
-  - `ACCESS_TOKEN_SECRET`: The Twitter Access Token 
+  - `ACCESS_TOKEN_SECRET`: The Twitter Access Token secret
 - A file named `last_seen.txt` must be present in this directory, which contains nothing but the ID of the most recent tweet you do **not** want to retweet. All tweets newer than the tweet with this ID will be retweeted and liked! To retrieve the tweet ID of the most recent tweet that should be ignored, simply open it on twitter.com, and copy the long integer following `https://twitter.com/Int_SORSE/status/`, e.g. `https://twitter.com/Int_SORSE/status/`**`1320664355046887428`**.
 - You need to register a Twitter developer account at <https://developer.twitter.com>, and create and save the API key and secret. You also need to create a Twitter app with read and write permissions, and mint an access token and secret.
 
@@ -38,6 +39,18 @@ echo "1234567890" > last_seen.txt # Use a real tweet ID
 # Run the bot, wait for Int_SORSE to tweet something and watch it being retweeted and liked by your account
 python bot.py
 ```
+
+You can also change the `RETWEET_USER` in `bot.py` if you want to trigger the bot from a different account.
+You can store the environment variables in a file `.env` and load them from it with `source .env`:
+
+```bash
+export API_KEY=... # Use your own API key, etc.
+export API_KEY_SECRET=...
+export ACCESS_TOKEN=...
+export ACCESS_TOKEN_SECRET=...
+```
+
+Note that even on your own machine, you should limit who can read/edit this file, at least `chmod 0700 .env`.
 
 ## Deploy to Heroku
 
