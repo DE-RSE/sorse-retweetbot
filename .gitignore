@@ -4,8 +4,6 @@ __pycache__/
 ## VSCodium 
 .vscode/
 
-last_seen.txt
-
 .env
 
 venv/
