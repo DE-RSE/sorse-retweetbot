@@ -37,7 +37,9 @@ def read_last_seen():
     """
     # Read file and
     with open(LAST_SEEN_FILE_PATH, 'r') as file:
-        last_seen_id = int(file.read().strip())
+        last_id_str = file.read().strip()
+        print('Read last seen ID ' + last_id_str)
+        last_seen_id = int(last_id_str)
         return last_seen_id
 
 
@@ -48,7 +50,9 @@ def write_last_seen(last_seen_id):
     to a file in the path specified by the LAST_SEEN_FILE_PATH constant.
     """
     with open(LAST_SEEN_FILE_PATH, 'w') as file:
-        file.write(str(last_seen_id))
+        last_id_str = str(last_seen_id)
+        print('Writing last ID as ' + last_id_str)
+        file.write(last_id_str)
     return
 
 
@@ -74,6 +78,7 @@ def reply():
         write_last_seen(new_tweets[0])
 
         for id in reversed(new_tweets):
+            print('Replying to tweet with ID ' + str(id))
             # Favourite this tweet
             api.create_favorite(id)
             # Retweet
